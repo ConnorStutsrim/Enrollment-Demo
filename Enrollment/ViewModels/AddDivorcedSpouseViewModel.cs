@@ -1,4 +1,5 @@
-﻿using Enrollment.Models;
+﻿using Enrollment.DAL;
+using Enrollment.Models;
 using System;
 using System.ComponentModel.DataAnnotations;
 

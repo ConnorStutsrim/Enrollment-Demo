@@ -1,4 +1,5 @@
-﻿using Enrollment.Models;
+﻿using Enrollment.DAL;
+using Enrollment.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace Enrollment.ViewModels

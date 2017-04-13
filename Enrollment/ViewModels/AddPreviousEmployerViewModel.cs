@@ -1,4 +1,5 @@
-﻿using Enrollment.Models;
+﻿using Enrollment.DAL;
+using Enrollment.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;

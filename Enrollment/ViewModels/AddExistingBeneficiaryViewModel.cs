@@ -1,4 +1,5 @@
-﻿using Enrollment.Models;
+﻿using Enrollment.DAL;
+using Enrollment.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -10,9 +11,9 @@ namespace Enrollment.ViewModels
 {
     public class AddExistingBeneficiaryViewModel
     {
-        public AddExistingBeneficiaryViewModel(EnrollmentContext db)
+        public AddExistingBeneficiaryViewModel(EnrollmentContext db, Guid userID)
         {
-            Guid userID = Guid.Parse(HttpContext.Current.User.Identity.GetUserId());
+            //Guid userID = Guid.Parse(HttpContext.Current.User.Identity.GetUserId());
             var excludedDependents = new List<Dependent>();
             foreach (Dependent dep in db.Participants.Single(s => s.IdentityID == userID).Dependents)
             {
