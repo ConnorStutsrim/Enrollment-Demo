@@ -1,0 +1,54 @@
+﻿@model Enrollment.ViewModels.AddExistingBeneficiaryViewModel
+
+@{
+    ViewBag.Title = "Beneficiary Information";
+}
+
+<h2>Step 5: Beneficiaries</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Choose a dependent</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Beneficiary.PersonID, "Dependent", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Beneficiary.PersonID, Model.DependentList, "", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Beneficiary.PersonID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Beneficiary.RelationshipTypeID, "Relationship", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Beneficiary.RelationshipTypeID, Model.RelationshipTypeList, "", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Beneficiary.RelationshipTypeID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AdditionalBeneficiary, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.AdditionalBeneficiary, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AdditionalBeneficiary, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input name="submitButton" type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
